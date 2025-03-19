@@ -24,14 +24,25 @@ csv_files = pandas.read_csv("data.csv",sep=";")
 
 
 
-col3, col4 = st.columns(2)
+col3,col35 ,col4 = st.columns([1.5,0.5,1.5])
 
 with col3:
-    for index,row in csv_files[0:10].iterrows():
+    for index,item in csv_files[0:10].iterrows():
 ###  iterrows returns a Series for each row
-        st.header(row["title"])
+        st.header(item["title"])
+        st.write(item["description"])
+        st.image("images/"+item["image"])
+### the reason we put images first is because the path of the directory is different it is not the main path of python
+### project 1
+        st.write(f"[source code]({item["url"]})")
+
+
+
 
 with col4:
-    for index,row in csv_files[10:].iterrows():
+    for index,item in csv_files[10:].iterrows():
 ###  iterrows returns a Series for each row
-        st.header(row["title"])
+        st.header(item["title"])
+        st.write(item["description"])
+        st.image("images/"+item["image"])
+        st.write(f"[source code]({item["url"]})")
